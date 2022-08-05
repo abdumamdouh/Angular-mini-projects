@@ -1,6 +1,7 @@
 //core modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 //components
 import { AppComponent } from './app.component';
@@ -19,7 +20,7 @@ import { LogService } from './services/log.service';
     LogsComponent,
   ],
   //modules
-  imports: [BrowserModule],
+  imports: [BrowserModule, FormsModule],
   //services
   providers: [LogService],
   //root app component to bootstrap

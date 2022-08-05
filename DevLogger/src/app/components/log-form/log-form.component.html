@@ -1,7 +1,14 @@
 <div class="card card-body">
   <form>
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Add a log..." />
+      <!-- bind the input to the log.text property, two way data binding -->
+      <input
+        type="text"
+        name="text"
+        class="form-control"
+        placeholder="Add a log..."
+        [(ngModel)]="this.log.text"
+      />
     </div>
     <input
       type="submit"
