@@ -55,8 +55,10 @@ export class LogService {
   // you can't use ngOnInit in a service, you can use it only on components, use the constructor method instead
   // ngOnInit(): void {}
 
-  getLogs(): Log[] {
-    return this.logs;
+  // make it to return the logs as observables to be asynchronous
+  getLogs(): Observable<Log[]> {
+    // of operator is a pure method that transform information into the observables stream
+    return of(this.logs);
   }
 
   // will use this method to set form log to the data source so every subscriber to this BehaviorSubject object gets the new data

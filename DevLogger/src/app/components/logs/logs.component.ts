@@ -18,7 +18,8 @@ export class LogsComponent implements OnInit {
   constructor(private logService: LogService) {}
 
   ngOnInit(): void {
-    this.logs = this.logService.getLogs();
+    // the getLogs method is async method that return an observable we need to subscribe to it
+    this.logService.getLogs().subscribe((logs) => (this.logs = logs));
   }
 
   // emit the clicked log to the behavior subject object so we can subscribe for it at the log from
