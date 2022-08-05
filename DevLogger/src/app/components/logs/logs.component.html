@@ -1,21 +1,10 @@
 <ul class="list-group mt-4">
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    <a href="#">Wegz</a>
-    <span class="log-date">5/8/2022</span>
+  <li
+    *ngFor="let log of logs"
+    class="list-group-item d-flex justify-content-between align-items-center"
+  >
+    <a href="#">{{ log.text }}</a>
+    <span class="log-date">{{ log.date | date: "short" }}</span>
     <i class="fa fa-remove"></i>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    <a href="#">Marwan Moussa</a>
-    <span class="log-date">3/8/2022</span>
-    <i class="fa fa-remove"></i>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    <a href="#">Marwan Pablo </a>
-    <span class="log-date">1/8/2022</span>
-    <i class="fa fa-remove"></i>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      <a href="#">Moussa Sam </a>
-      <span class="log-date">2/8/2022</span>
-      <i class="fa fa-remove"></i>
   </li>
 </ul>
