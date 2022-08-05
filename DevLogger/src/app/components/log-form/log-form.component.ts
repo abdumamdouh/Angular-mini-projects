@@ -20,7 +20,8 @@ export class LogFormComponent implements OnInit {
   ngOnInit(): void {
     // subscribe to the behavior object data stream to get the clicked/selected log
     this.logService.selectedLog.subscribe((log) =>
-      log.text !== null ? (this.log = log) : null
+      // clone the log object, because angular send the object by reference
+      log.text !== null ? (this.log = { ...log }) : null
     );
   }
 }
