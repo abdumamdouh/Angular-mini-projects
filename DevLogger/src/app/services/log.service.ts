@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+
 import { Log } from '../models/Log';
 
 //Injectable decorator means that this service
@@ -11,6 +13,12 @@ export class LogService {
   // use logs property as a global state for two slicing components
   // if one component is a parent of the other you can pass the state as an input
   logs: Log[] = [];
+
+  // use behavior subject to listen/subscribe for stream of date or its initial value
+  private logSource = new BehaviorSubject<Log>({ id: 0, text: '', date: null });
+  // you need to make a source private property then make an observable property from this source to communicate with
+  // you will access this observable property and subscribe to it to get the stream of logs or the initial value
+  selectedLog = this.logSource.asObservable();
 
   constructor() {
     //you can use a static data here at first
@@ -44,10 +52,18 @@ export class LogService {
     ];
   }
 
-  // you can't use ngOnInit in a service, you can use it only on components
+  // you can't use ngOnInit in a service, you can use it only on components, use the constructor method instead
   // ngOnInit(): void {}
 
   getLogs(): Log[] {
     return this.logs;
+  }
+
+  // will use this method to set form log to the data source so every subscriber to this BehaviorSubject object gets the new data
+  setFormLog(log: Log) {
+    // use the next method to the BehaviorSubject object to stream new data for the subscribers
+    // Using the next method, we can pass every value emitted by the observable
+    this.logSource.next(log);
+    // console.log(log);
   }
 }
