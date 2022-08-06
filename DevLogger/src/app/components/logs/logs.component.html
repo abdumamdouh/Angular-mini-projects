@@ -3,6 +3,7 @@
     *ngFor="let log of logs"
     class="list-group-item d-flex justify-content-between align-items-center"
   >
+    <!-- TODO: make a log component -->
     <a href="#" (click)="handleLogClick(log)">{{ log.text }}</a>
     <span class="log-date">{{ log.date | date: "short" }}</span>
     <i class="fa fa-remove delete" (click)="handleDeleteLog(log)"></i>
