@@ -27,4 +27,9 @@ export class LogsComponent implements OnInit {
     // console.log(log);
     this.logService.setFormLog(log);
   }
+
+  handleDeleteLog(log: Log) {
+    // console.log('dele', log);
+    this.logService.deleteLog(log);
+  }
 }

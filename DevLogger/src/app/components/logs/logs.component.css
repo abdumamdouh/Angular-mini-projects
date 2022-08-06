@@ -1,3 +1,7 @@
 .log-date {
   color: #777;
 }
+
+.delete:hover {
+  cursor: pointer;
+}

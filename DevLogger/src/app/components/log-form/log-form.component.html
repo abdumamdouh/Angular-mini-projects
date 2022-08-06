@@ -15,6 +15,7 @@
       value="Add Log"
       class="btn btn-light"
       [disabled]="!this.log.text"
+      (click)="handleAddLog()"
     />
     <button type="button" class="btn btn-warning" [hidden]="!this.log.text">
       Clear

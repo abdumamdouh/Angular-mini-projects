@@ -68,4 +68,25 @@ export class LogService {
     this.logSource.next(log);
     // console.log(log);
   }
+
+  // add log
+  addLog(log: Log) {
+    log.id = this.logs.length + 1;
+    // console.log('from service', log);
+    this.logs.unshift(log);
+    // you can't reassign the reference type with a new value, edit in place, in React you clone but in Angular edit in place
+    // this.logs = [log, ...this.logs];
+    // console.log(this.logs);
+  }
+
+  //delete log
+  deleteLog(log: Log) {
+    console.log('from service', log);
+    const { id } = log;
+    // this won't work
+    // this.logs = this.logs.filter((log) => log.id !== id);
+    this.logs.forEach((log, index) => {
+      if (log.id === id) this.logs.splice(index, 1);
+    });
+  }
 }

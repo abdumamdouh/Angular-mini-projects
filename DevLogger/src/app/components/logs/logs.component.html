@@ -5,6 +5,6 @@
   >
     <a href="#" (click)="handleLogClick(log)">{{ log.text }}</a>
     <span class="log-date">{{ log.date | date: "short" }}</span>
-    <i class="fa fa-remove"></i>
+    <i class="fa fa-remove delete" (click)="handleDeleteLog(log)"></i>
   </li>
 </ul>

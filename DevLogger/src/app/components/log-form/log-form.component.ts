@@ -24,4 +24,13 @@ export class LogFormComponent implements OnInit {
       log.text !== null ? (this.log = { ...log }) : null
     );
   }
+
+  handleAddLog() {
+    const log = {
+      id: 0,
+      text: this.log.text,
+      date: new Date(),
+    };
+    this.logService.addLog(log);
+  }
 }
