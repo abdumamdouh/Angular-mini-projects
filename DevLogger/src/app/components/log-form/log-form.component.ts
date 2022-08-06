@@ -32,5 +32,10 @@ export class LogFormComponent implements OnInit {
       date: new Date(),
     };
     this.logService.addLog(log);
+    this.log = {
+      id: 0,
+      text: '',
+      date: '',
+    };
   }
 }
