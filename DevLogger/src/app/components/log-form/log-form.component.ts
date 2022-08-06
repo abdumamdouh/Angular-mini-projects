@@ -39,6 +39,12 @@ export class LogFormComponent implements OnInit {
     };
   }
 
+  handleUpdateLog() {
+    // console.log(this.log);
+    this.logService.updateLog(this.log);
+    this.handleClear();
+  }
+
   handleClear() {
     this.log = {
       id: 0,

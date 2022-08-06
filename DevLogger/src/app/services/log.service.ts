@@ -89,4 +89,19 @@ export class LogService {
       if (log.id === id) this.logs.splice(index, 1);
     });
   }
+
+  //delete log
+  updateLog(log: Log) {
+    console.log(log);
+
+    const { id } = log;
+    this.logs.forEach((l, index) => {
+      if (l.id === id) {
+        console.log(log.text);
+        this.logs[index].text = log.text;
+        this.logs[index].date = new Date();
+      }
+    });
+    console.log(this.logs);
+  }
 }
