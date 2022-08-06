@@ -17,7 +17,12 @@
       [disabled]="!this.log.text"
       (click)="handleAddLog()"
     />
-    <button type="button" class="btn btn-warning" [hidden]="!this.log.text">
+    <button
+      type="button"
+      class="btn btn-warning"
+      [hidden]="!this.log.text"
+      (click)="handleClear()"
+    >
       Clear
     </button>
   </form>
