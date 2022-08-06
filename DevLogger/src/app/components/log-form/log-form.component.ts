@@ -38,4 +38,12 @@ export class LogFormComponent implements OnInit {
       date: '',
     };
   }
+
+  handleClear() {
+    this.log = {
+      id: 0,
+      text: '',
+      date: '',
+    };
+  }
 }
